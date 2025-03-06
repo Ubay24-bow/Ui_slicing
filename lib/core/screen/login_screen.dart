@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_login/core/components/icon_tombol.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -119,26 +120,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           
                           const SizedBox(height: 30),
                      
-                          Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF3F51B5),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: TextButton(
-                              onPressed: () {
-                             
-                              },
-                              child: const Text(
-                                'Login',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
+                          IconTombol(
+                        label: 'Login',
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/utama');
+                        },
+                      ),
                           const SizedBox(height: 150),
                           
                           Center(

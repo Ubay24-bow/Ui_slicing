@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:ui_login/screen/login_screen.dart';
+import 'package:ui_login/core/screen/login_screen.dart';
 
 class UiScreen extends StatefulWidget {
   const UiScreen({super.key});
@@ -14,7 +14,7 @@ class _UiScreenState extends State<UiScreen> {
   @override
   void initState(){
     super.initState();
-  Timer(const Duration(seconds: 3), (){
+  Timer(const Duration(seconds: 2), (){
     Navigator.pushNamed(context, '/login');
   });
   }
@@ -23,10 +23,10 @@ class _UiScreenState extends State<UiScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            // This will push the center content to the middle
+           
             const Spacer(),
             
-            // Center content
+        
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -50,10 +50,10 @@ class _UiScreenState extends State<UiScreen> {
               ),
             ),
             
-            // This will push the bottom content to the bottom
+          
             const Spacer(),
             
-            // Bottom logo
+           
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: Column(
