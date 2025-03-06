@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:ui_login/core/screen/login_screen.dart';
 
@@ -23,10 +22,10 @@ class _UiScreenState extends State<UiScreen> {
       body: SafeArea(
         child: Column(
           children: [
-           
+            // This will push the center content to the middle
             const Spacer(),
             
-        
+            // Center content
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -50,10 +49,10 @@ class _UiScreenState extends State<UiScreen> {
               ),
             ),
             
-          
+            // This will push the bottom content to the bottom
             const Spacer(),
             
-           
+            // Bottom logo
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: Column(
