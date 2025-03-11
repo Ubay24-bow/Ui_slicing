@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_login/core/data/warna_color.dart';
+import 'package:ui_login/core/components/warna_color.dart';
 
 class IconTombol extends StatelessWidget {
   const IconTombol({super.key, required this.label, this.onPressed});

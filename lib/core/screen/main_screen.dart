@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ui_login/core/components/assets.dart';
-import 'package:ui_login/core/data/warna_color.dart';
+import 'package:ui_login/core/components/warna_color.dart';
 import 'package:ui_login/core/data/warna_data.dart';
-import 'package:ui_login/core/screen/home_screen.dart';
+import 'package:ui_login/core/screen/home/model/home_screen.dart';
 import 'package:ui_login/core/screen/inbox_screen.dart';
 import 'package:ui_login/core/screen/scan_screen.dart';
 import 'package:ui_login/core/screen/setting_screen.dart';
-import 'package:ui_login/core/screen/ticket_screen.dart';
+import 'package:ui_login/core/screen/ticket/model/ticket_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

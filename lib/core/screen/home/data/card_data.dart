@@ -4,25 +4,25 @@ class CardData extends StatefulWidget {
   final String title;
   final String subTitle;
   final int price;
-  final Function(int) onQuantityChanged; //parameter hanya penamaan saja, ini defauld dari flutter
+  final Function(int)
+  onQuantityChanged; //parameter hanya penamaan saja, ini defauld dari flutter
 
   const CardData({
     Key? key,
-     required this.title,
-      required this.subTitle,
-       required this.price,
-        required this.onQuantityChanged,
-        }) : super(key: key);
+    required this.title,
+    required this.subTitle,
+    required this.price,
+    required this.onQuantityChanged,
+  }) : super(key: key);
 
   @override
   State<CardData> createState() => _CardDataState();
 }
 
 class _CardDataState extends State<CardData> {
-  
   int quantity = 0;
 
-// jika kondisi penjumlahan pada pesanan quantity-> berperan sebagai penjumlahan +(increment)
+  // jika kondisi penjumlahan pada pesanan quantity-> berperan sebagai penjumlahan +(increment)
   void increment() {
     setState(() {
       quantity++;
@@ -30,7 +30,7 @@ class _CardDataState extends State<CardData> {
     });
   }
 
-// jika kondisi pengurangan pada pesanan quantity-> berperan sebagai pengurangan -(dec) sebagai kondisi ke 2 
+  // jika kondisi pengurangan pada pesanan quantity-> berperan sebagai pengurangan -(dec) sebagai kondisi ke 2
   void decrement() {
     if (quantity > 0) {
       setState(() {
@@ -39,9 +39,10 @@ class _CardDataState extends State<CardData> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -73,10 +74,7 @@ class _CardDataState extends State<CardData> {
                   ),
                   Text(
                     widget.subTitle,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -101,15 +99,11 @@ class _CardDataState extends State<CardData> {
             children: [
               Text(
                 'Rp. ${widget.price.toString()}',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               Text(
                 'Rp. ${(widget.price * quantity).toString()}',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
           ),

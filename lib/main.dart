@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_login/core/screen/login_screen.dart';
 import 'package:ui_login/core/screen/main_screen.dart';
-import 'package:ui_login/core/screen/payment_screen.dart';
+import 'package:ui_login/core/screen/order_screen.dart';
 import 'package:ui_login/core/screen/ui_screen.dart';
 
 void main() {
@@ -21,7 +21,11 @@ class MyApp extends StatelessWidget {
         '/': (context) =>  const UiScreen(),
         '/login': (context) => const LoginScreen(),
         '/utama': (context) => const MainScreen(),
-        '/bayar': (context) => const PaymentScreen(),
+        // '/bayar': (context) => const PaymentScreen(),
+        
+       
+        
+        
       },
     );
 }

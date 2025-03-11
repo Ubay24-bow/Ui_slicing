@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ui_login/core/data/card_data.dart';
-import 'package:ui_login/core/data/product_data.dart';
-import 'package:ui_login/core/data/warna_color.dart';
+import 'package:ui_login/core/screen/home/data/card_data.dart';
+import 'package:ui_login/core/screen/home/data/product_data.dart';
+import 'package:ui_login/core/components/warna_color.dart';
+import 'package:ui_login/core/screen/order_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -83,7 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/bayar');
+                        // Navigator.pushNamed(context, routeName)
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => OrderScreen(selectedProducts: data.where((Product) => Product.quantity > 0).toList(),
+                         totalAmount: getTotal())));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: WarnaColor.utama,
