@@ -22,6 +22,18 @@ class _OrderScreenState extends State<OrderScreen> {
 
   // tipe pembayaran
   final List<String> paymentMethods = ['QRIS', 'Tunai', 'Transfer'];
+  
+  final Map<String, String> iconNormal = {
+    'QRIS': 'assets/qr_putih.png',
+    'Tunai': 'assets/tunai_putih.png',
+    'Transfer': 'assets/transfer_putih.png',
+  };
+
+  final Map<String, String> iconKlick = {
+     'QRIS': 'assets/qr_ungu.png',
+    'Tunai': 'assets/tunai_ungu.png',
+    'Transfer': 'assets/transfer_ungu.png',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -169,34 +181,59 @@ class _OrderScreenState extends State<OrderScreen> {
   }
 
   Widget _buildPaymentOption(String method) {
-    final isSelected = selectedPaymentMethod == method;
-    return GestureDetector( // Aksi ketika suato tombol di klick
-      onTap: () => setState(() => selectedPaymentMethod = method),// ketika di klick akan memanggil setState untuk memperbarui input dari selectedPaymentMethod yang dipilih
-      child: Container(
-        
-        width: 80,
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(
-          
-          color: isSelected ? WarnaColor.utama : Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            
-            color: isSelected ? WarnaColor.utama : Colors.grey.shade300,
-          ),
+  final isSelected = selectedPaymentMethod == method;
+  return GestureDetector(
+    onTap: () => setState(() => selectedPaymentMethod = method),
+    child: Container(
+      width: 85,
+      height: 85,
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      decoration: BoxDecoration(
+        color: isSelected ? WarnaColor.utama : Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: isSelected ? WarnaColor.utama : Colors.grey.shade300,
         ),
-        child: Center(
-          child: Text(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 5,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Perbaikan di sini - hapus referensi ke 'assets/images/'
+          Image.asset(
+            isSelected 
+              ? iconKlick[method] ?? 'assets/default_payment_white.png'
+              : iconNormal[method] ?? 'assets/default_payment.png',
+            width: 40, // Tambahkan lebar tetap
+            height: 40, // Tambahkan tinggi tetap
+            errorBuilder: (context, error, stackTrace) {
+              // Menampilkan teks jika gambar tidak ditemukan
+              return Text(method, style: TextStyle(
+                color: isSelected ? Colors.white : WarnaColor.utama,
+                fontWeight: FontWeight.bold,
+              ));
+            },
+          ),
+          SizedBox(height: 4), // Spasi
+          Text(
             method,
             style: TextStyle(
-              color: isSelected ? Colors.white : Colors.black,
+              fontSize: 12,
+              color: isSelected ? Colors.white : Colors.black87,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
-        ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 
   void _processOrder() {
     // 1. Simpan data pesanan
